@@ -30,8 +30,8 @@ namespace Task_3
                     buffer[j] = matrix[j, i];
                 }
 
-                //BubbleSort(buffer);
-                QuickSort(buffer);
+                BubbleSort(buffer);
+                //QuickSort(buffer);
                 //MergeSort(buffer);
 
                 for(var k = 0; k< dimention; k++)
@@ -53,11 +53,11 @@ namespace Task_3
             Console.Read();
         }
 
-
         static void MergeSort(int[] arr)
         {
             Merge(arr, 0, arr.Length - 1);
         }
+
         static void Merge(int[] arr, int leftIndex, int rightIndex)
         {
             if (leftIndex < rightIndex)

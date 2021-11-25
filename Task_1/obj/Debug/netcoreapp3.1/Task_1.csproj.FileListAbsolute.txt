@@ -11,3 +11,4 @@ D:\Projects\c#\csharp\Task_1\obj\Debug\netcoreapp3.1\Task_1.csproj.CoreCompileIn
 D:\Projects\c#\csharp\Task_1\obj\Debug\netcoreapp3.1\Task_1.dll
 D:\Projects\c#\csharp\Task_1\obj\Debug\netcoreapp3.1\Task_1.pdb
 D:\Projects\c#\csharp\Task_1\obj\Debug\netcoreapp3.1\Task_1.genruntimeconfig.cache
+D:\Projects\c#\csharp\Task_1\obj\Debug\netcoreapp3.1\Task_1.csproj.AssemblyReference.cache

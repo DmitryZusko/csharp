@@ -1,9 +1,5 @@
 ﻿/* Використовуючи рекурсію, знайти всі парні числа з заданого набору цілих чисел. Масив не оголошувати. */
 
-/* Не дуже викупив, як не оголошуючи масив, зберегти набір заданих чисел, аби перевірити їх на парність. Хіба циклом, чи зберегти все в строку через кому, а потім 
- цю кому використати як розмежовувач і так діставати йобані числа, но це всратий гемор же. А якшо для вхідних данних масив можна, а неможна тільки для функції по 
-перевірці - ну то це всрате формулювання умови. Знаю, шо не ти формулював, просто бурчу. Кароч, мій код поки працює тільки для одного числа, зате з рекурсією*/
-
 using System;
 
 namespace Task_6
@@ -12,34 +8,28 @@ namespace Task_6
     {
         static void Main(string[] args)
         {
-            Console.Write("Enter an integer number: ");
-            var userNum = Convert.ToInt32(Console.ReadLine());
-
-            Console.Write($"Is your number even? {Rec_Dividing(userNum)}");
+            Console.WriteLine("Let's start our game: you enter an integer number, I check is it even. If you want to stop playing just print «I am ball one».");
+            var result = EvenChecker();
+            Console.WriteLine(result);
 
             Console.ReadLine();
         }
 
-        static bool Rec_Dividing(int userNum)
+        public static string EvenChecker()
         {
-            if (userNum < 10)
-            // якшо число менше десятки, то просто перевіряємо на парність непарність
+            Console.WriteLine("Your turn: ");
+            var userInput = Console.ReadLine();
+
+            if (userInput == "I am ball one")
             {
-                if (userNum % 2 == 0) return true;
-                else
-                {
-                    return false;
-                }
-            }
-            else
-            {
-                return Rec_Dividing(userNum % 10);
-                // якшо ж число більше 10, то вертаємо остачу від ділення на 10 до тих пір, поки не отримаємо число < 10
+                return "Oh, you are finally done, jerky asshole! Go fuck yourself!";
             }
 
+            var userNum = 0;
+            int.TryParse(userInput, out userNum);
+            Console.WriteLine($"Is your number even? {(userNum % 2 == 0 ? true : false)}");
 
-
-
+            return EvenChecker();
         }
     }
 }
