@@ -15,25 +15,20 @@ namespace Task_4
         {
             Console.WriteLine("Enter your goddamn sentence: ");
             var userSent = Console.ReadLine();
-            var pattern = new [] {' ', ',', '.', ';', ':', '!', '?'};
-            /* Рattern містить в собі всі нелітери */
-            var splitUserSent = userSent.Split(pattern);
-            var clearUserSent = String.Concat(splitUserSent);
-            /* Спочатку вирізаємо всі нелітери з речення, а потім зливаємо в один стрінг */
+            var clearUserSent = String.Concat(Regex.Split(userSent, @"\W|\d"));
             var vowelLetters = "aeyuio";
-
             var vowelcount = new Dictionary<char, int>();
 
             foreach (var vowel in vowelLetters)
             {
-                int count = clearUserSent.ToCharArray().Where(c => c == vowel).Count();
-                vowelcount.Add(vowel, 100*count/clearUserSent.Length);
+                int count = Regex.Matches(clearUserSent, vowel.ToString()).Count();
+                vowelcount.Add(vowel, 100 * count / clearUserSent.Length);
             }
-            /* Рахуємо кількість повіторів для голосних і закидаємо в словник, де ключ - літера, значення - відсоток вживання. */
+            /* рахуємо кількість повіторів для голосних і закидаємо в словник, де ключ - літера, значення - відсоток вживання. */
 
-            foreach(var pair in vowelcount.OrderByDescending(pair => pair.Value))
+            foreach (var pair in vowelcount.OrderByDescending(pair => pair.Value))
             {
-                Console.WriteLine($"Vowel {pair.Key} occupies {pair.Value}%.");
+                Console.WriteLine($"vowel {pair.Key} occupies {pair.Value}%.");
             }
 
             Console.ReadLine();
