@@ -11,7 +11,7 @@ namespace Task_3
 
             Console.WriteLine("Enter a dimention af the matrix: ");
             var dimention = Convert.ToInt32(Console.ReadLine());
-            var matrix = new int[dimention,dimention];
+            var matrix = new int[dimention, dimention];
             Console.WriteLine("Enter numbers: ");
             for (var i = 0; i < dimention; i++)
             {
@@ -22,28 +22,28 @@ namespace Task_3
                 }
             }
 
-            for(var i = 0; i< dimention; i++)
+            for (var i = 0; i < dimention; i++)
             {
                 var buffer = new int[dimention];
-                for(var j = 0; j <dimention; j++)
+                for (var j = 0; j < dimention; j++)
                 {
                     buffer[j] = matrix[j, i];
                 }
 
-                BubbleSort(buffer);
-                //QuickSort(buffer);
+                //BubbleSort(buffer);
+                QuickSort(buffer);
                 //MergeSort(buffer);
 
-                for(var k = 0; k< dimention; k++)
+                for (var k = 0; k < dimention; k++)
                 {
                     matrix[k, i] = buffer[k];
                 }
 
             }
 
-            for(var i = 0; i<dimention; i++)
-                    {
-                for(var j =0; j < dimention; j++)
+            for (var i = 0; i < dimention; i++)
+            {
+                for (var j = 0; j < dimention; j++)
                 {
                     Console.Write(matrix[i, j] + "\t");
                 }
@@ -113,7 +113,10 @@ namespace Task_3
         }
         static int[] Quick(int[] arr, int minIndex, int maxIndex)
         {
-            if (minIndex >= maxIndex) return arr;
+            if (minIndex >= maxIndex)
+            {
+                return arr;
+            }
 
             var pivotIndex = GetPivotIndex(arr, minIndex, maxIndex);
 
@@ -132,9 +135,7 @@ namespace Task_3
                 if (arr[i] > arr[maxIndex])
                 {
                     pivotIndex++;
-                    // Console.Write("Iteration: " + i + " Pivot Index: " + pivotIndex + " Ar: " + arr[pivotIndex] + " " + arr[i]);
                     (arr[pivotIndex], arr[i]) = (arr[i], arr[pivotIndex]);
-                    // Console.Write("->" + arr[pivotIndex] + " " + arr[i] + "\n");
                 }
 
             }
@@ -153,9 +154,7 @@ namespace Task_3
                 {
                     if (arr[j] < arr[j + 1])
                     {
-                        //Console.WriteLine(arr[j] + " " + arr[j + 1]);
                         (arr[j], arr[j + 1]) = (arr[j + 1], arr[j]);
-                        //Console.WriteLine(arr[j] + " " + arr[j + 1] + "\n");
                     }
 
                 }
