@@ -31,7 +31,7 @@ namespace Task_6
                 Console.WriteLine("Are you fucking blind?! Then I'll say you one more goddamn time: enter THE FUCKING INTEGER NUMBER, goatfucker.");
                 return EvenChecker();
             }
-            Console.WriteLine($"Is your number even? {(userNum % 2 == 0 ? true : false)}");
+            Console.WriteLine($"Is your number even? {userNum % 2 == 0}");
 
             return EvenChecker();
         }
